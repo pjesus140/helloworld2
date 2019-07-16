@@ -16,6 +16,12 @@ public class Account {
 	}
 	
 	
+	@Override
+	public String toString() {
+		return "Account [id=" + id + ", accNum=" + accNum + ", fName=" + fName + ", lName=" + lName + "]";
+	}
+
+
 	private int id;
 	private int accNum;
 	private String fName;

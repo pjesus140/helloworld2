@@ -21,9 +21,11 @@ public class App {
 		
 		amr.getAllAccounts();
 		
-		amr.deleteAccount(1);
+//		amr.deleteAccount(1);
 		amr.getAllAccounts();
+		String strx = (amr.toJson());
 
+		amr.toObj(strx);
 		
 		
 	}
