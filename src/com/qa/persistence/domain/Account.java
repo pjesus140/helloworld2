@@ -7,6 +7,14 @@ public class Account {
 	//An Account Number
 	//A First Name
 	//A last Name
+	public Account(int accNum, String fName,String lName) {
+		this.accNum = accNum;
+		this.fName = fName;
+		this.lName = lName;
+		
+		
+	}
+	
 	
 	private int id;
 	private int accNum;
