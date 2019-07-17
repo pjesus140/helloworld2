@@ -1,57 +1,59 @@
 package com.qa.persistence.domain;
 
 public class Account {
-	
-	//This class needs to have:
-	//An id
-	//An Account Number
-	//A First Name
-	//A last Name
-	public Account(int accNum, String fName,String lName) {
+
+	// This class needs to have:
+	// An id
+	// An Account Number
+	// A First Name
+	// A last Name
+	public Account(int accNum, String fName, String lName) {
 		this.accNum = accNum;
 		this.fName = fName;
 		this.lName = lName;
-		
-		
+
 	}
-	
-	
+
 	@Override
 	public String toString() {
-		return "Account [id=" + id + ", accNum=" + accNum + ", fName=" + fName + ", lName=" + lName + "]";
+		return "Account [accNum=" + accNum + ", fName=" + fName + ", lName=" + lName + "]";
 	}
 
-
-	private int id;
+	 private int id;
 	private int accNum;
 	private String fName;
 	private String lName;
-	
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public int getAccNum() {
 		return accNum;
 	}
+
 	public void setAccNum(int accNum) {
 		this.accNum = accNum;
 	}
+
 	public String getfName() {
 		return fName;
 	}
+
 	public void setfName(String fName) {
 		this.fName = fName;
 	}
+
 	public String getlName() {
 		return lName;
 	}
+
 	public void setlName(String lName) {
 		this.lName = lName;
 	}
-	
-	
-	
+
 }
