@@ -14,6 +14,7 @@ public class App {
 		System.out.println(amr.createAccount( 123, "jim", "bam"));
 		System.out.println(amr.createAccount( 321, "james", "topson"));
 		System.out.println(amr.createAccount( 563, "sam", "biggs"));
+		System.out.println(amr.createAccount( 123, "jim", "bambo"));
 		
 		amr.getAllAccounts();
 		
@@ -24,8 +25,10 @@ public class App {
 //		amr.deleteAccount(1);
 		amr.getAllAccounts();
 		String strx = (amr.toJson());
+		
+		amr.sameNames("jim");
 
-		amr.toObj(strx);
+//		amr.toObj(strx);
 		
 		//hmm
 	}

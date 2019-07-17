@@ -2,6 +2,7 @@ package com.qa.persistence.repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.awt.List;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -90,26 +91,38 @@ public class AccountMapRepository implements AccountRepository {
 
 	}
 	
-	public void toObj(String jsonString) {
-		ObjectMapper mapper = new ObjectMapper();
+	public int sameNames(String name) {
 		
-		try {
-
-
-
-            // Java objects to JSON string - compact-print
-			Account staff2 = mapper.readValue(jsonString, Account.class);
-
-            System.out.println(staff2);
-
-          
-
-    
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+		int count =0;
+		
+		for (Long y : accountMap.keySet()) {
+			if (((Account) accountMap.get(y)).getfName().equals(name)) {
+				count++;
+			}
+		}
+		System.out.println("Fist name: "+name+"\nAppears:"+count+"x");
+		return count;
+		
 	}
+	
+	
+//	public void toObj(String jsonString) {
+//		ObjectMapper mapper = new ObjectMapper();
+//		
+//		try {
+//
+//
+//
+//            // Java objects to JSON string - compact-print
+//			Account staff2 = mapper.readValue(jsonString, Account.class);
+//
+//            System.out.println(staff2);
+//
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//	}
 
 }
