@@ -18,13 +18,14 @@ public class App {
 		
 		amr.getAllAccounts();
 		
-		amr.updateAccount(1, 987, "ana", "smith");
+		amr.updateAccount(3, 987, "ana", "smith");
 		
 		amr.getAllAccounts();
 		
 //		amr.deleteAccount(1);
 		amr.getAllAccounts();
-		String strx = (amr.toJson());
+		String strx = (amr.toJson(1));
+		
 		
 		amr.sameNames("jim");
 

@@ -7,8 +7,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-
-
 import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
 import com.qa.persistence.domain.Account;
@@ -55,74 +53,64 @@ public class AccountMapRepository implements AccountRepository {
 
 	public String updateAccount(long id, int accNum, String fName, String lName) {
 		Account a = new Account(accNum, fName, lName);
-		Map<Long, Account> accountMapTemp = new HashMap<Long, Account>();
-		for (Long q : accountMap.keySet()) {
-			if (id != q) {
-				accountMapTemp.put(q, accountMap.get(q));
+		a.setId((int) id);
+		accountMap.replace(id, a);
 
-			} else
-				accountMapTemp.put(q, a);
-		}
-
-		accountMap = accountMapTemp;
 		return null;
 	}
 
-	public String toJson() {
+	public String toJson(long a) {
 		ObjectMapper mapper = new ObjectMapper();
-		
+
 		try {
 
+			// Java objects to JSON string - compact-print
+			String jsonString = mapper.writeValueAsString(accountMap);
 
+			System.out.println(jsonString);
 
-            // Java objects to JSON string - compact-print
-            String jsonString = mapper.writeValueAsString(accountMap);
+			return jsonString;
 
-            System.out.println(jsonString);
-
-          return jsonString;
-
-    
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
 
 	}
-	
+
 	public int sameNames(String fName) {
-		
-		int count =0;
-		
+
+		int count = 0;
+
 		for (Long y : accountMap.keySet()) {
 			if (accountMap.get(y).getfName().equals(fName)) {
 				count++;
 			}
 		}
-		System.out.println("Fist name: "+fName+"\nAppears:"+count+"x");
+		System.out.println("Fist name: " + fName + "\nAppears:" + count + "x");
 		return count;
-		
+
 	}
+
 	
-	
-//	public void toObj(String jsonString) {
-//		ObjectMapper mapper = new ObjectMapper();
-//		
-//		try {
-//
-//
-//
-//            // Java objects to JSON string - compact-print
-//			Account staff2 = mapper.readValue(jsonString, Account.class);
-//
-//            System.out.println(staff2);
-//
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//	}
+
+	// public void toObj(String jsonString) {
+	// ObjectMapper mapper = new ObjectMapper();
+	//
+	// try {
+	//
+	//
+	//
+	// // Java objects to JSON string - compact-print
+	// Account staff2 = mapper.readValue(jsonString, Account.class);
+	//
+	// System.out.println(staff2);
+	//
+	//
+	// } catch (IOException e) {
+	// e.printStackTrace();
+	// }
+	//
+	// }
 
 }
