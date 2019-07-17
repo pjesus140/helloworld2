@@ -19,7 +19,9 @@ public class AccountServiceTest {
 	
 	@Test
 	public void addAccountTest() {
-		fail("TODO");	
+		AccountMapRepository amr = new AccountMapRepository();
+		assertEquals("hmmm","jim bam Account created",amr.createAccount( 123, "jim", "bam"));
+		
 	}
 	
 	@Test

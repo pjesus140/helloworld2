@@ -91,16 +91,16 @@ public class AccountMapRepository implements AccountRepository {
 
 	}
 	
-	public int sameNames(String name) {
+	public int sameNames(String fName) {
 		
 		int count =0;
 		
 		for (Long y : accountMap.keySet()) {
-			if (((Account) accountMap.get(y)).getfName().equals(name)) {
+			if (accountMap.get(y).getfName().equals(fName)) {
 				count++;
 			}
 		}
-		System.out.println("Fist name: "+name+"\nAppears:"+count+"x");
+		System.out.println("Fist name: "+fName+"\nAppears:"+count+"x");
 		return count;
 		
 	}
